@@ -61,20 +61,24 @@ namespace Repository
             return db.Contacts.ToList();
         }
 
-        public List<Ticket> GetTickets(int UserId= 0)
+        public List<Ticket> GetTickets(string username = null)
         {
             DBContextApp db = new DBContextApp();
             List<Ticket> tickets;
-            if (UserId == 0)
+            if (username == null)
             {
                 tickets = db.Tickets.ToList();
             }
             else
             {
-                tickets = db.Tickets.Where(a => a.UserId == UserId).ToList();
+                User usrs = this.GetUsers().Where(a => a.Username == username).FirstOrDefault();
+                if (usrs == null)
+                    return null;
+                else
+                    tickets = db.Tickets.Where(a => a.UserId == usrs.Id).ToList();
             }
             List<User> users = this.GetUsers();
-            User user = users.Where(a => a.Id == UserId).FirstOrDefault();
+            User user = users.Where(a => a.Username == username).FirstOrDefault();
             foreach (var item in tickets)
             {
                 item.User = user;

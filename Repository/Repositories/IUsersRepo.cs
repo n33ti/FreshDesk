@@ -12,7 +12,7 @@ namespace Repository
     {
 
         List<User> GetUsers();
-        List<Ticket> GetTickets(int UserId=0);
+        List<Ticket> GetTickets(string username = null);
         List<Contact> GetContacts();
 
         Contact GetContact(int TicketId);

@@ -22,11 +22,11 @@ namespace FreshDesk.Controllers
             return Ok(repo.GetUsers());
         }
 
-        [HttpGet("Tickets/{UserId}")]
-        public IActionResult GetAllTickets(int UserId)
+        [HttpGet("Tickets/{Username}")]
+        public IActionResult GetAllTickets(string Username)
         {
             IUsersRepo repo = new UsersRepo();
-            return Ok(repo.GetTickets(UserId));
+            return Ok(repo.GetTickets(Username));
         }
 
         [HttpGet("Tickets")]

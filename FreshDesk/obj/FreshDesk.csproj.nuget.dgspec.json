@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\FreshDesk\\FreshDesk.csproj": {}
+    "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\FreshDesk\\FreshDesk.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\FreshDesk\\FreshDesk.csproj": {
+    "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\FreshDesk\\FreshDesk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\FreshDesk\\FreshDesk.csproj",
+        "projectUniqueName": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\FreshDesk\\FreshDesk.csproj",
         "projectName": "FreshDesk",
-        "projectPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\FreshDesk\\FreshDesk.csproj",
+        "projectPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\FreshDesk\\FreshDesk.csproj",
         "packagesPath": "C:\\Users\\NESINH1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\FreshDesk\\obj\\",
+        "outputPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\FreshDesk\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NESINH1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\Repository.csproj"
+              "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\Repository.csproj"
               }
             }
           }
@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\Repository.csproj": {
+    "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\NESINH1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NESINH1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -86,8 +86,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj": {
-                "projectPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj"
+              "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj": {
+                "projectPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj"
               }
             }
           }
@@ -119,14 +119,14 @@
         }
       }
     },
-    "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj": {
+    "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj",
+        "projectUniqueName": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj",
         "projectName": "UsersManagement",
-        "projectPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj",
+        "projectPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj",
         "packagesPath": "C:\\Users\\NESINH1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\obj\\",
+        "outputPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NESINH1\\AppData\\Roaming\\NuGet\\NuGet.Config",

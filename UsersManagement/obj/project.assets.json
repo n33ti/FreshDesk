@@ -5005,11 +5005,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj",
+      "projectUniqueName": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj",
       "projectName": "UsersManagement",
-      "projectPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj",
+      "projectPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj",
       "packagesPath": "C:\\Users\\NESINH1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\obj\\",
+      "outputPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NESINH1\\AppData\\Roaming\\NuGet\\NuGet.Config",

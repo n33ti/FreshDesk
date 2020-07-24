@@ -4953,11 +4953,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\Repository.csproj",
+      "projectPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\NESINH1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\Repository\\obj\\",
+      "outputPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NESINH1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4973,8 +4973,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj": {
-              "projectPath": "C:\\Users\\NESINH1\\source\\repos\\UsersManagement\\UsersManagement\\UsersManagement.csproj"
+            "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj": {
+              "projectPath": "C:\\Users\\NESINH1\\Final Proj\\UsersManagement\\UsersManagement\\UsersManagement.csproj"
             }
           }
         }
