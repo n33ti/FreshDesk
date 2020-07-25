@@ -26,6 +26,9 @@ namespace FreshDesk
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(c => {
+             c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().Build()); });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +42,11 @@ namespace FreshDesk
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors(a => a.AllowAnyOrigin());
+            app.UseCors();
+           
+           
+
+            //   app.UseCors(a=> a.Acess)
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

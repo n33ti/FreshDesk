@@ -17,7 +17,7 @@ namespace Repository
             return false;
             DBContextApp db = new DBContextApp();
             Ticket ticket = new Ticket();
-            ticket.ContactId = Convert.ToInt32(data.ContactId);
+            ticket.ContactId = 1;
             ticket.Query = data.Query;
             ticket.Status = "Raised";
             ticket.UserId = UserId;
@@ -33,7 +33,7 @@ namespace Repository
             if (data == null)
                 return false;
             List<User> users = this.GetUsers().Where(a=> a.Username == data.Username).ToList();
-            if(users.Count()>1)
+            if(users.Count()>=1)
             {
                 return false;
             }
@@ -112,6 +112,8 @@ namespace Repository
                 ticket.Query = data.Query;
             if (data.Status != null)
                 ticket.Status = data.Status;
+            if (data.ContactId != null)
+                ticket.ContactId = Convert.ToInt32(data.ContactId);
             db.SaveChanges();
             return true;
         }

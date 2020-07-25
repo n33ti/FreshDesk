@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repository;
@@ -11,8 +11,10 @@ using Repository.Requsets;
 
 namespace FreshDesk.Controllers
 {
+    [EnableCors("AllowOrigin")]
     [Route("api")]
     [ApiController]
+   
     public class UsersController : ControllerBase
     {
         [HttpGet("Users")]
@@ -21,6 +23,8 @@ namespace FreshDesk.Controllers
             IUsersRepo repo = new UsersRepo();
             return Ok(repo.GetUsers());
         }
+
+     
 
         [HttpGet("Tickets/{Username}")]
         public IActionResult GetAllTickets(string Username)
@@ -52,11 +56,7 @@ namespace FreshDesk.Controllers
             IUsersRepo repo = new UsersRepo();
             return Ok(repo.GetContact(TicketId));
 
-        }
-
-
-
-      
+        }      
 
 
 
@@ -74,7 +74,7 @@ namespace FreshDesk.Controllers
             return Ok(repo.AddUser(data));
         }
 
-        [HttpPut("UpdateTicket")]
+        [HttpPost("UpdateTicket")]
         public IActionResult UpdateUser(UpdateTicketRequest data)
         {
             IUsersRepo repo = new UsersRepo();

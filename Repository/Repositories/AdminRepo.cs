@@ -19,7 +19,7 @@ namespace Repository.Repositories
             contact.Username = data.Username;
             DBContextApp db = new DBContextApp();
             var contacts = db.Contacts.Where(a => a.Username == data.Username).FirstOrDefault();
-            if (contacts == null)
+            if (contacts != null)
                 return false;
             db.Contacts.Add(contact);
             db.SaveChanges();
