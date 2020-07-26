@@ -11,30 +11,52 @@ namespace Repository.Repositories
 {
     public class AdminRepo : IAdminRepo
     {
+        private readonly DBContextApp _db;
+
+        public AdminRepo(DBContextApp db)
+        {
+            this._db = db;
+        }
+
+        public bool AddAdmin(AddUserRequest data)
+        {
+            if (data == null)
+                return false;
+            Admin admin = this.GetAdmins().Where(a => data.Username == a.Username).FirstOrDefault();
+            if (admin != null)
+                return true;
+            admin = new Admin();
+            admin.Username = data.Username;
+            admin.Password = data.Password;
+            _db.Admins.Add(admin);
+            _db.SaveChanges();
+            return true;
+        }
+
         public bool CreateContact(CreateContactRequest data)
         {
             if (data == null)
                 return false;
             Contact contact = new Contact();
             contact.Username = data.Username;
-            DBContextApp db = new DBContextApp();
-            var contacts = db.Contacts.Where(a => a.Username == data.Username).FirstOrDefault();
+           
+            var contacts = _db.Contacts.Where(a => a.Username == data.Username).FirstOrDefault();
             if (contacts != null)
                 return false;
-            db.Contacts.Add(contact);
-            db.SaveChanges();
+            _db.Contacts.Add(contact);
+            _db.SaveChanges();
             return true;
 
         }
 
         public bool DeleteTicket(int TicketId)
         {
-            DBContextApp db = new DBContextApp();
-            Ticket ticket = db.Tickets.Where(a => a.Id == TicketId).FirstOrDefault();
+            
+            Ticket ticket = _db.Tickets.Where(a => a.Id == TicketId).FirstOrDefault();
             if(ticket != null)
             {
-                db.Tickets.Remove(ticket);
-                db.SaveChanges();
+                _db.Tickets.Remove(ticket);
+                _db.SaveChanges();
                 return true;
             }
             return false;
@@ -42,15 +64,15 @@ namespace Repository.Repositories
 
         public List<Admin> GetAdmins()
         {
-            DBContextApp db = new DBContextApp();
-            return db.Admins.ToList();
+            
+            return _db.Admins.ToList();
         }
 
         public List<UserDTO> GetUsersDTO()
         {
-            DBContextApp db = new DBContextApp();
+           
             List<UserDTO> users = new List<UserDTO>();
-            foreach(var user in db.Users.ToList())
+            foreach(var user in _db.Users.ToList())
             {
                 UserDTO usr = new UserDTO();
                 usr.Username = user.Username;

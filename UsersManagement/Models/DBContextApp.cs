@@ -8,11 +8,11 @@ namespace UsersManagement
 {
    public  class DBContextApp : DbContext
     {
-     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DBContextApp(DbContextOptions<DBContextApp> options) : base(options)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=APINP-ELPT55965;user id=sa;password=2November@;database=UserManagement");
+
         }
+
 
         public DbSet<User> Users { get; set; }
         public DbSet<Ticket> Tickets { get; set; }

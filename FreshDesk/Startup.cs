@@ -6,10 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Repository;
+using Repository.Repositories;
+using UsersManagement;
 
 namespace FreshDesk
 {
@@ -26,6 +30,22 @@ namespace FreshDesk
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            string connectionString = Configuration["ConnectionStrings:dbconnection"];
+            services.AddDbContext<DBContextApp>(a => a.UseSqlServer(connectionString));
+
+            services.AddScoped<IAdminRepo, AdminRepo>();
+            services.AddScoped<IUsersRepo, UsersRepo>();
+
+            services.AddSwaggerGen(a =>
+            {
+                a.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "Fresh Desk Api",
+                    Version = "v1"
+                });
+            });
+
+
             services.AddCors(c => {
              c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().Build()); });
            
@@ -40,7 +60,12 @@ namespace FreshDesk
             }
 
             app.UseHttpsRedirection();
-
+            app.UseSwagger();
+            //this is used to generate Swagger Endpoint 
+            app.UseSwaggerUI(a =>
+            {
+                a.SwaggerEndpoint("/swagger/v1/swagger.json", "FreshDesk REST API");
+            });
             app.UseRouting();
             app.UseCors();
            

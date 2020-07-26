@@ -15,6 +15,8 @@ namespace Repository.Repositories
         bool CreateContact(CreateContactRequest data);
         bool DeleteTicket(int TicketId);
 
+        bool AddAdmin(AddUserRequest data);
+
 
     }
 }

@@ -11,19 +11,25 @@ namespace Repository
 {
    public class UsersRepo : IUsersRepo
     {
+        private readonly DBContextApp _db;
+
+        public UsersRepo(DBContextApp db)
+        {
+            this._db = db;
+        }
         public bool AddTicket(AddTicketRequest data, int UserId)
         {
             if(data == null)
             return false;
-            DBContextApp db = new DBContextApp();
+          
             Ticket ticket = new Ticket();
             ticket.ContactId = 1;
             ticket.Query = data.Query;
             ticket.Status = "Raised";
             ticket.UserId = UserId;
           
-            db.Tickets.Add(ticket);
-            db.SaveChanges();
+            _db.Tickets.Add(ticket);
+            _db.SaveChanges();
             
             return true;
         }
@@ -40,51 +46,60 @@ namespace Repository
             User user = new User();
             user.Password = data.Password;
             user.Username = data.Username;
-            DBContextApp db = new DBContextApp();
-            db.Users.Add(user);
-            db.SaveChanges();
+          
+            _db.Users.Add(user);
+            _db.SaveChanges();
             return true;
         }
 
         public Contact GetContact(int TicketId)
         {
-            DBContextApp db = new DBContextApp();
+           
             // Contact contact = db.Contacts.Where(a => TicketId == TicketId).FirstOrDefault();
-            Ticket ticket = db.Tickets.Where(a => a.Id == TicketId).FirstOrDefault();
-            return db.Contacts.Where(a=> a.Id == ticket.ContactId).FirstOrDefault();
+            Ticket ticket = _db.Tickets.Where(a => a.Id == TicketId).FirstOrDefault();
+            return _db.Contacts.Where(a=> a.Id == ticket.ContactId).FirstOrDefault();
         }
 
         public List<Contact> GetContacts()
         {
-            DBContextApp db = new DBContextApp();
+            
 
-            return db.Contacts.ToList();
+            return _db.Contacts.ToList();
         }
 
         public List<Ticket> GetTickets(string username = null)
         {
-            DBContextApp db = new DBContextApp();
+           
             List<Ticket> tickets;
             if (username == null)
             {
-                tickets = db.Tickets.ToList();
+                tickets = _db.Tickets.ToList();
             }
             else
             {
                 User usrs = this.GetUsers().Where(a => a.Username == username).FirstOrDefault();
                 if (usrs == null)
-                    return null;
-                else
-                    tickets = db.Tickets.Where(a => a.UserId == usrs.Id).ToList();
-            }
-            List<User> users = this.GetUsers();
-            User user = users.Where(a => a.Username == username).FirstOrDefault();
+                    return null;            
+                    tickets = _db.Tickets.Where(a => a.UserId == usrs.Id).ToList();
+                foreach (var item in tickets)
+                {
+                    //item.User = user;
+                    item.User.Tickets.Clear();
+                }
+
+                }
+            //List<User> users = this.GetUsers();
+            //User user = users.Where(a => a.Username == username).FirstOrDefault();
+
             foreach (var item in tickets)
             {
-                item.User = user;
+                //item.User = user;
+               // item.User.Tickets.Clear();
+               
                 List<Contact> contacts = this.GetContacts();
                 Contact contact = contacts.Where(a => a.Id == item.ContactId).FirstOrDefault();
                 item.Contact = contact;
+                item.Contact.Tickets.Clear();
             }
 
             
@@ -94,16 +109,16 @@ namespace Repository
 
         public List<User> GetUsers()
         {
-            DBContextApp db = new DBContextApp();
-            return db.Users.ToList();
+            
+            return _db.Users.ToList();
         }
 
         public bool UpdateTicket(UpdateTicketRequest data)
         {
             if (data == null)
                 return false;
-            DBContextApp db = new DBContextApp();
-            var ticket = db.Tickets.Where(a => a.Id == data.Id).FirstOrDefault();
+           
+            var ticket = _db.Tickets.Where(a => a.Id == data.Id).FirstOrDefault();
             if(ticket == null)
             {
                 return false;
@@ -114,7 +129,7 @@ namespace Repository
                 ticket.Status = data.Status;
             if (data.ContactId != null)
                 ticket.ContactId = Convert.ToInt32(data.ContactId);
-            db.SaveChanges();
+            _db.SaveChanges();
             return true;
         }
 

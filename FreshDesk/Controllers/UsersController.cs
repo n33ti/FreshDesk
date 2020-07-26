@@ -17,10 +17,15 @@ namespace FreshDesk.Controllers
    
     public class UsersController : ControllerBase
     {
+        private readonly IUsersRepo repo;
+        public UsersController(IUsersRepo repo)
+        {
+            this.repo = repo;
+        }
         [HttpGet("Users")]
         public IActionResult GetUsers()
         {
-            IUsersRepo repo = new UsersRepo();
+            //IUsersRepo repo = new UsersRepo();
             return Ok(repo.GetUsers());
         }
 
@@ -29,14 +34,14 @@ namespace FreshDesk.Controllers
         [HttpGet("Tickets/{Username}")]
         public IActionResult GetAllTickets(string Username)
         {
-            IUsersRepo repo = new UsersRepo();
+            //IUsersRepo repo = new UsersRepo();
             return Ok(repo.GetTickets(Username));
         }
 
         [HttpGet("Tickets")]
         public IActionResult GetTickets()
         {
-            IUsersRepo repo = new UsersRepo();
+           // IUsersRepo repo = new UsersRepo();
             return Ok(repo.GetTickets());
         }
 
@@ -44,7 +49,7 @@ namespace FreshDesk.Controllers
         [HttpGet("Contacts")]
         public IActionResult GetContacts()
         {
-            IUsersRepo repo = new UsersRepo();
+            //IUsersRepo repo = new UsersRepo();
             return Ok(repo.GetContacts());
         }
 
@@ -53,7 +58,7 @@ namespace FreshDesk.Controllers
         public IActionResult GetContact(int TicketId)
         
         {
-            IUsersRepo repo = new UsersRepo();
+           // IUsersRepo repo = new UsersRepo();
             return Ok(repo.GetContact(TicketId));
 
         }      
@@ -63,21 +68,21 @@ namespace FreshDesk.Controllers
         [HttpPost("AddTicket/{UserId}")]
         public IActionResult AddTicket(AddTicketRequest data, int UserId)
         {
-            IUsersRepo repo = new UsersRepo();
+          //  IUsersRepo repo = new UsersRepo();
             return Ok(repo.AddTicket(data, UserId));
         }
 
         [HttpPost("AddUser")]
         public IActionResult AddUser(AddUserRequest data)
         {
-            IUsersRepo repo = new UsersRepo();
+           // IUsersRepo repo = new UsersRepo();
             return Ok(repo.AddUser(data));
         }
 
         [HttpPost("UpdateTicket")]
         public IActionResult UpdateUser(UpdateTicketRequest data)
         {
-            IUsersRepo repo = new UsersRepo();
+           // IUsersRepo repo = new UsersRepo();
             return Ok(repo.UpdateTicket(data));
         }
 
