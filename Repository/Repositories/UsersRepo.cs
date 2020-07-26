@@ -127,8 +127,8 @@ namespace Repository
                 ticket.Query = data.Query;
             if (data.Status != null)
                 ticket.Status = data.Status;
-            if (data.ContactId != null)
-                ticket.ContactId = Convert.ToInt32(data.ContactId);
+            if (data.ContactId != '\0')
+                ticket.ContactId =data.ContactId ;
             _db.SaveChanges();
             return true;
         }

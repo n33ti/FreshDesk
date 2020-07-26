@@ -10,6 +10,6 @@ namespace Repository.Requsets
 
         public string Query { get; set; }
 
-        public string ContactId { get; set; }
+        public int ContactId { get; set; }
     }
 }
