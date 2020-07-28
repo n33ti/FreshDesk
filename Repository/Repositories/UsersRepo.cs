@@ -21,6 +21,10 @@ namespace Repository
         {
             if(data == null)
             return false;
+
+            User user = _db.Users.Where(a => a.Id == UserId).FirstOrDefault();
+            if (user == null)
+                return false;
           
             Ticket ticket = new Ticket();
             ticket.ContactId = 1;
@@ -38,8 +42,10 @@ namespace Repository
         {
             if (data == null)
                 return false;
-            List<User> users = this.GetUsers().Where(a=> a.Username == data.Username).ToList();
-            if(users.Count()>=1)
+            if (data.Password == "")
+                return false;
+           User usr = this.GetUsers().Where(a=> a.Username == data.Username).FirstOrDefault();
+            if(usr != null)
             {
                 return false;
             }
@@ -57,6 +63,8 @@ namespace Repository
            
             // Contact contact = db.Contacts.Where(a => TicketId == TicketId).FirstOrDefault();
             Ticket ticket = _db.Tickets.Where(a => a.Id == TicketId).FirstOrDefault();
+            if (ticket == null)
+                return null;
             return _db.Contacts.Where(a=> a.Id == ticket.ContactId).FirstOrDefault();
         }
 

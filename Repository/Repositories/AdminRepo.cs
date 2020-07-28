@@ -22,9 +22,11 @@ namespace Repository.Repositories
         {
             if (data == null)
                 return false;
+            if (data.Password == "")
+                return false;
             Admin admin = this.GetAdmins().Where(a => data.Username == a.Username).FirstOrDefault();
             if (admin != null)
-                return true;
+                return false;
             admin = new Admin();
             admin.Username = data.Username;
             admin.Password = data.Password;
