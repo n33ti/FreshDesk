@@ -30,11 +30,11 @@ namespace FreshDesk.Controllers
             return Ok(repo.GetAdmins());
         }
 
-        [HttpGet("Users")]
-        public IActionResult GetUsers()
+        [HttpGet("Users/{userId}")]
+        public IActionResult GetUsers(int userId = 0)
         {
           //  AdminRepo repo = new AdminRepo();
-            return Ok(repo.GetUsersDTO());
+            return Ok(repo.GetUsersDTO(userId));
         }
 
         [HttpGet("DeleteTicket/{TicketId}")]

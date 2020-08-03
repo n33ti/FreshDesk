@@ -11,7 +11,7 @@ namespace Repository.Repositories
    public interface IAdminRepo
     {
         List<Admin> GetAdmins();
-        List<UserDTO> GetUsersDTO();
+        List<UserDTO> GetUsersDTO(int userId = 0);
 
         bool CreateContact(CreateContactRequest data);
         bool DeleteTicket(int TicketId);

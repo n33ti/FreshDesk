@@ -93,18 +93,34 @@ namespace Repository.Repositories
             return tickets;
         }
 
-        public List<UserDTO> GetUsersDTO()
+        public List<UserDTO> GetUsersDTO(int userId = 0)
         {
+            if(userId != 0)
+            {
+                User user =_db.Users.Where(a => a.Id == userId).FirstOrDefault();
+                if (user == null)
+                    return null;
+                UserDTO usr = new UserDTO();
+                usr.Username = user.Username;
+                usr.UserId = user.Id;
+                List<UserDTO> usrs = new List<UserDTO>();
+                usrs.Add(usr);
+                return usrs;
+
+            }
            
             List<UserDTO> users = new List<UserDTO>();
             foreach(var user in _db.Users.ToList())
             {
                 UserDTO usr = new UserDTO();
                 usr.Username = user.Username;
+                usr.UserId = user.Id;
                 users.Add(usr);
             }
             return users;
             
         }
+
+       
     }
 }
