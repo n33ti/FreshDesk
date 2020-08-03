@@ -58,6 +58,16 @@ namespace Repository
             return true;
         }
 
+        public bool DeleteUser(int UserId)
+        {
+            User usr = _db.Users.Where(a => a.Id == UserId).FirstOrDefault();
+            if (usr == null)
+                return false;
+            _db.Users.Remove(usr);
+            _db.SaveChanges();
+            return true;
+        }
+
         public Contact GetContact(int TicketId)
         {
            

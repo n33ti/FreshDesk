@@ -58,5 +58,18 @@ namespace FreshDesk.Controllers
             return Ok(repo.AddAdmin(data));
         }
 
+        [HttpGet("DeleteAdmin/{AdminId}")]
+        public IActionResult DeleteAdmin(int AdminId)
+        {
+            // IUsersRepo repo = new UsersRepo();
+            return Ok(repo.DeleteAdmin(AdminId));
+        }
+
+        [HttpGet("GetTickets/{ContactId}")]
+        public IActionResult GetTickets(int ContactId)
+        {
+            return Ok(repo.GetTickets(ContactId));
+        }
+
     }
 }

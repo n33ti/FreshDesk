@@ -86,5 +86,12 @@ namespace FreshDesk.Controllers
             return Ok(repo.UpdateTicket(data));
         }
 
+        [HttpGet("DeleteUser/{UserId}")]
+        public IActionResult DeleteUser(int UserId)
+        {
+            // IUsersRepo repo = new UsersRepo();
+            return Ok(repo.DeleteUser(UserId));
+        }
+
     }
 }

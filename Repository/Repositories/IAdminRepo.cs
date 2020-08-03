@@ -3,6 +3,7 @@ using Repository.Requsets;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UsersManagement;
 using UsersManagement.Models;
 
 namespace Repository.Repositories
@@ -16,6 +17,11 @@ namespace Repository.Repositories
         bool DeleteTicket(int TicketId);
 
         bool AddAdmin(AddUserRequest data);
+
+        bool DeleteAdmin(int AdminId);
+
+        List<Ticket> GetTickets(int ContactId);
+
 
 
     }

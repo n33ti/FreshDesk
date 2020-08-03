@@ -51,6 +51,16 @@ namespace Repository.Repositories
 
         }
 
+        public bool DeleteAdmin(int AdminId)
+        {
+            Admin adm = _db.Admins.Where(a => a.Id == AdminId).FirstOrDefault();
+            if (adm == null)
+                return false;
+            _db.Admins.Remove(adm);
+            _db.SaveChanges();
+            return true;
+        }
+
         public bool DeleteTicket(int TicketId)
         {
             
@@ -68,6 +78,19 @@ namespace Repository.Repositories
         {
             
             return _db.Admins.ToList();
+        }
+
+        public List<Ticket> GetTickets(int ContactId)
+        {
+            Contact contact = _db.Contacts.Where(a => a.Id == ContactId).FirstOrDefault();
+            if (contact == null)
+                return null;
+            List<Ticket> tickets = _db.Tickets.Where(a => a.ContactId == ContactId).ToList();
+            foreach(var ticket in tickets)
+            {
+                ticket.Contact = null;
+            }
+            return tickets;
         }
 
         public List<UserDTO> GetUsersDTO()

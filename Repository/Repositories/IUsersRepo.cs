@@ -22,5 +22,7 @@ namespace Repository
         bool AddUser(AddUserRequest data);
 
         bool UpdateTicket(UpdateTicketRequest data);
+
+        bool DeleteUser(int UserId);
     }
 }
